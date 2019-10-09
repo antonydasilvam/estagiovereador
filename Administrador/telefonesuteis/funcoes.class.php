@@ -1,21 +1,20 @@
 <?php
 
-include_once 'dadosgabinete.php';
+include_once 'dadostelefonesuteis.php';
 
 include_once '../../conexao.php';
 
-class Funcoes extends Conexao {
+class FuncoesTelefonesUteis extends Conexao {
 
-    function inserir(DadosGabinete $gabinete) {
+    function inserir(DadosTelefonesUteis $telefonesuteis) {
 
         try {
             $conecta = $this->conectar();
             $conecta->beginTransaction();
-            $sql = "INSERT INTO gabinete(nome,cargo,foto) VALUES(:nome,:cargo,:foto)";
+            $sql = "INSERT INTO telefonesuteis(nome,numero) VALUES(:nome,:numero)";
             $statement = $conecta->prepare($sql);
-            $statement->bindvalue(":nome", $gabinete->getNome());
-            $statement->bindvalue(":cargo", $gabinete->getCargo());
-            $statement->bindvalue(":foto", $gabinete->getFoto());
+            $statement->bindvalue(":nome", $telefonesuteis->getNome());
+            $statement->bindvalue(":numero", $telefonesuteis->getNumero());
             $execute = $statement->execute();
             if ($execute == true) {
                 $conecta->commit();
@@ -41,7 +40,7 @@ class Funcoes extends Conexao {
         try {
             $conecta = $this->conectar();
             $conecta->beginTransaction();
-            $sql = "SELECT * FROM gabinete order by nome";
+            $sql = "SELECT * FROM telefonesuteis order by nome";
             $listar = $conecta->prepare($sql);
             $listar->execute();
 
@@ -60,3 +59,32 @@ class Funcoes extends Conexao {
     }
 }
     
+
+
+    
+function excluir(DadosTelefonesUteis $telefonesuteis){
+    try{
+        $conecta = $this->conectar();
+        $conecta->beginTransaction();
+        $sql = "DELETE FROM telefonesuteis WHERE id=:id";
+        $statement = $conecta->prepare($sql);
+        $statement->bindValue(":id", $telefonesuteis->getId());
+       
+    $statement->execute();
+    
+    if ($statement == true) {
+        $conecta->commit();
+        return TRUE;
+ }
+} catch (PDOException $exc) {
+    if ((isset($conecta)) && ($conecta->inTransaction())) {
+        $conecta->rollBack();
+    }
+    print($exc->getMessage());
+    return FALSE;
+} finally {
+    if (isset($conecta)) {
+        unset($conecta);
+    }
+}
+}

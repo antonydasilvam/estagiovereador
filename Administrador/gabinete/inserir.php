@@ -6,7 +6,7 @@
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Inserir Integrante</div>
       <div class="card-body">
-        <form action="" name="paciente"  method="POST">
+        <form action="" name="gabinete"  method="POST">
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
