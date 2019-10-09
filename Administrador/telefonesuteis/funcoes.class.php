@@ -57,9 +57,6 @@ class FuncoesTelefonesUteis extends Conexao {
             }
         }
     }
-}
-    
-
 
     
 function excluir(DadosTelefonesUteis $telefonesuteis){
@@ -87,4 +84,10 @@ function excluir(DadosTelefonesUteis $telefonesuteis){
         unset($conecta);
     }
 }
+}
+
+
+
+
+
 }

@@ -10,7 +10,7 @@
    
     $funcoes = new FuncoesTelefonesUteis();
     $funcoes->excluir($telefonesuteis);
-
+    
     if($funcoes){
         echo "<center>Telefone eliminado con exito.</center>";
         

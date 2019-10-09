@@ -58,5 +58,57 @@ class Funcoes extends Conexao {
             }
         }
     }
+
+
+       
+function excluir(DadosGabinete $gabinete){
+    try{
+        $conecta = $this->conectar();
+        $conecta->beginTransaction();
+        $sql = "DELETE FROM gabinete WHERE id=:id";
+        $statement = $conecta->prepare($sql);
+        $statement->bindValue(":id", $gabinete->getId());
+       
+    $statement->execute();
+    
+    if ($statement == true) {
+        $conecta->commit();
+        return TRUE;
+ }
+} catch (PDOException $exc) {
+    if ((isset($conecta)) && ($conecta->inTransaction())) {
+        $conecta->rollBack();
+    }
+    print($exc->getMessage());
+    return FALSE;
+} finally {
+    if (isset($conecta)) {
+        unset($conecta);
+    }
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
     
