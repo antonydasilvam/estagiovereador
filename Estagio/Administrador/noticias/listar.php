@@ -1,4 +1,9 @@
 <?php include_once '../header.php';
+  include_once "funcoes.class.php";
+  include_once 'dadosnoticias.php';
+
+  $funcoes = new FuncoesTelefonesUteis();
+  $listar = $funcoes->listar();
   
 ?>
 <div class="card mb-3">
@@ -12,45 +17,36 @@
                   <tr>
                     <th>Titulo</th>
                     <th>Serviço</th>
-                    <th>Ver Noticia</th>
-                    <th>Eliminar Noticia</th>
+                    <th>Editar Telefone</th>
+                    <th>Eliminar Telefone</th>
                   </tr>
                 </thead>
                 <tfoot>
                   <tr>
                     <th>Titulo</th>
                     <th>Serviço</th>
-                    <th>Ver Noticia</th>
-                    <th>Eliminar Noticia</th>
+                    <th>Editar Telefone</th>
+                    <th>Eliminar Telefone</th>
                   </tr>
                 </tfoot>
                <!-- Hacer un for de aca --> <tbody>
+               <?php
+            foreach ($listar as $linha) {
+                ?>
                   <tr>
-                    <td>Setembro Amarelo</td>
-                    <td>Nenhum</td>
+                    <td><a href="vercompleta.php?ID=<?php echo $linha['id']; ?>"><?php echo $linha['nome']; ?></a></td>
+                    <td><?php echo $linha['numero']; ?></td>
                     <td><a href="ver.php"><i class="fas fa-edit"></i> Editar</a></td>
-                    <td><a href="delete.php"><i class="fas fa-times"></i> Eliminar</a></td>
-                  </tr>
-                  <tr>
-                    <td>Ajudando Cachorros de Rua</td>
-                    <td>Causa Animal</td>
-                    <td><a href="ver.php"><i class="fas fa-edit"></i> Editar</a></td>
-                    <td><a href="delete.php"><i class="fas fa-times"></i> Eliminar</a></td>
-                  </tr>
-                  <tr>
-                    <td>Visita ao Hospital</td>
-                    <td>Saude</td>
-                    <td><a href="ver.php"><i class="fas fa-edit"></i> Editar</a></td>
-                    <td><a href="delete.php"><i class="fas fa-times"></i> Eliminar</a></td>
-                    
-                  </tr>
+                    <td><a href="excluir.php?ID=<?php echo $linha['id']; ?>"><i class="fas fa-times"></i> Eliminar</a></td>
+                  </tr><?php }; ?>
+                  
                   
                   
                 </tbody> <!-- Hasta aca -->
               </table>
             </div>
           </div>
-          <div class="card-footer small text-muted">Última atualização 26/09/2019</div>
+          <div class="card-footer small text-muted">Última atualização 08/10/2019</div>
         </div>
 
         <?php

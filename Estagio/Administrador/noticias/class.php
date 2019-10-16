@@ -1,9 +1,11 @@
 <?php
-class DadosGabinete {
+class DadosNoticias {
 
     private $id;
-    private $nome;
-    private $cargo;
+    private $fktiponoticia;
+    private $titulo;
+    private $descricao;
+    private $titulo;
     
     public function getId() {
         return $this->id;
@@ -30,4 +32,3 @@ class DadosGabinete {
     }
 
 }
-
