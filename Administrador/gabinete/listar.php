@@ -39,7 +39,7 @@
                     <td><?php echo $linha['nome']; ?></td>
                     <td><?php echo $linha['cargo']; ?></td>
                     <td><img src="img/<?php echo $linha['foto']; ?>" height="100" width="75" onclick='window.open(this.src)'></td>
-                    <td><a href="ver.php"><i class="fas fa-edit"></i> Editar</a></td>
+                    <td><a href="editar.php"><i class="fas fa-edit"></i> Editar</a></td>
                     <td><a href="excluir.php?ID=<?php echo $linha['id']; ?>"><i class="fas fa-times"></i> Eliminar</a></td>
                   </tr><?php }; ?>
                   
@@ -47,9 +47,10 @@
               </table>
             </div>
           </div>
-          <div class="card-footer small text-muted">Última atualização 09/10/2019</div>
+          <div class="card-footer small text-muted">Última atualização 24/10/2019</div>
         </div>
 
         <?php
+        
 include_once '../footer.php';
 ?>

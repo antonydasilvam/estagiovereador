@@ -1,9 +1,9 @@
 <?php
-class DadosGabinete {
+class Imagens {
 
     private $id;
-    private $nome;
-    private $cargo;
+    private $imagem;
+    private $Fknoticia;
     
     public function getId() {
         return $this->id;

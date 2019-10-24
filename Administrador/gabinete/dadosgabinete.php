@@ -4,7 +4,7 @@ class DadosGabinete {
     private $id;
     private $nome;
     private $cargo;
-    private $foto;
+    public $foto;
     
     public function getId() {
         return $this->id;

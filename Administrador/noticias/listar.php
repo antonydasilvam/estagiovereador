@@ -2,7 +2,7 @@
   include_once "funcoes.class.php";
   include_once 'dadosnoticias.php';
 
-  $funcoes = new FuncoesTelefonesUteis();
+  $funcoes = new FuncoesNoticias();
   $listar = $funcoes->listar();
   
 ?>
@@ -16,17 +16,15 @@
                 <thead>
                   <tr>
                     <th>Titulo</th>
-                    <th>Serviço</th>
-                    <th>Editar Telefone</th>
-                    <th>Eliminar Telefone</th>
+                    <th>Editar Noticia</th>
+                    <th>Eliminar Noticia</th>
                   </tr>
                 </thead>
                 <tfoot>
                   <tr>
                     <th>Titulo</th>
-                    <th>Serviço</th>
-                    <th>Editar Telefone</th>
-                    <th>Eliminar Telefone</th>
+                    <th>Editar Noticia</th>
+                    <th>Eliminar Noticia</th>
                   </tr>
                 </tfoot>
                <!-- Hacer un for de aca --> <tbody>
@@ -46,7 +44,7 @@
               </table>
             </div>
           </div>
-          <div class="card-footer small text-muted">Última atualização 08/10/2019</div>
+          <div class="card-footer small text-muted">Última atualização 24/10/2019</div>
         </div>
 
         <?php

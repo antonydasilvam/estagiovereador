@@ -6,7 +6,7 @@
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Inserir Integrante</div>
       <div class="card-body">
-        <form action="" name="gabinete"  method="POST">
+        <form action="" name="gabinete"  method="POST" enctype="multipart/form-data">
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
@@ -50,7 +50,22 @@ if (isset($_POST['Cadastro'])) {
     $gabinete = new DadosGabinete();
     $gabinete->setNome($_POST['nome']);
     $gabinete->setCargo($_POST['cargo']);
-    $gabinete->setFoto($_POST['foto']);
+
+    $nombreimg=$_FILES['foto']['name'];
+    $nombreTemporario = $_FILES['foto']['tmp_name'];
+    $destino = 'img/'.$nombreimg;
+    //move_uploaded_file($nombreTemporario, $destino)
+    if (move_uploaded_file($nombreTemporario,$destino))
+    {
+        echo "<center>foto enviada con exito</center>";
+    }
+    else{
+        "<center>Error al insertar foto</center>";
+    }
+
+    $gabinete->foto = $nombreimg;
+
+    
     $funcoes = new Funcoes();
     $funcoes->inserir($gabinete);
 
