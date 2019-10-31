@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-10-2019 a las 01:46:40
+-- Tiempo de generación: 25-10-2019 a las 06:38:44
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.4
 
@@ -59,6 +59,15 @@ CREATE TABLE `gabinete` (
   `cargo` varchar(50) COLLATE utf8_bin NOT NULL,
   `foto` varchar(500) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `gabinete`
+--
+
+INSERT INTO `gabinete` (`id`, `nome`, `cargo`, `foto`) VALUES
+(10, 'Antonio Zenoir', 'Vereador', 'personax2.jpg'),
+(12, 'Daniel Sant\'Anna', 'Assessor', 'personax2.jpg'),
+(13, 'Rafael Kohanoski', 'Assessor', 'personax2.jpg');
 
 -- --------------------------------------------------------
 
@@ -176,7 +185,7 @@ ALTER TABLE `contatos`
 -- AUTO_INCREMENT de la tabla `gabinete`
 --
 ALTER TABLE `gabinete`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `imagens`

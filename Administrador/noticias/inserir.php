@@ -32,7 +32,7 @@
           <div class="form-group">
             <div class="form-label-group">
               <input type="file" id="foto" class="form-control" required="required" >
-              <label for="foto">Foto</label>
+              <label for="imagem">Imagens</label>
             </div>
           </div>
           <div class="form-group">
@@ -61,12 +61,41 @@
   <?php
 include_once 'funcoes.class.php';
 include_once 'dadosnoticias.php';
+
+//Imagem
+
+include_once '../fotosvideos/funcoes.class.php';
+include_once '../fotosvideos/dadosimagens.php';
+
+//xd
 if (isset($_POST['Cadastro'])) {
     $dadosnoticias = new DadosNoticias();
     $dadosnoticias->setTitulo($_POST['titulo']);
     $dadosnoticias->setDescricao($_POST['descricao']);
-    $dadosnoticias->setFktiponoticia($_POST['fktiponoticia']);
-    $dadosimagens->setImagem($_POST['imagem']); //ESTO TENGO QUE ARREGLAR TODAVIA
+    $dadosimagens->setFktiponoticia($_POST['fktiponoticia']);
+    
+    $dadosimagens = new DadosImagens();
+    $dadosimagens->setFknoticia($_POST['Fknoticia']);
+  
+    $nombreimg=$_FILES['imagem']['name'];
+    $nombreTemporario = $_FILES['imagem']['tmp_name'];
+    $destino = '../fotosvideos/img/'.$nombreimg;
+    //move_uploaded_file($nombreTemporario, $destino)
+    if (move_uploaded_file($nombreTemporario,$destino))
+    {
+        echo "<center>foto enviada con exito</center>";
+    }
+    else{
+        "<center>Error al insertar foto</center>";
+    }
+
+    $gabinete->foto = $nombreimg;
+
+    
+
+    $funcoesimg = new FuncoesImagens();
+    $funcoesimg->inserir($dadosimagens);
+
     $funcoes = new FuncoesNoticias();
     $funcoes->inserir($dadosnoticias);
 
