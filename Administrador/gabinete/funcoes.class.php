@@ -69,7 +69,7 @@ function excluir(DadosGabinete $gabinete){
         $statement = $conecta->prepare($sql);
         $statement->bindValue(":id", $gabinete->getId());
        
-    $statement->execute();
+     $statement->execute();
     
     if ($statement == true) {
         $conecta->commit();

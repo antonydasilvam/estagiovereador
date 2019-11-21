@@ -1,3 +1,12 @@
+<?php
+
+session_start();
+if(!isset($_SESSION['login'])){
+    header("Location:../template/login.php");
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +38,7 @@
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="#">Administração</a>
+    <a class="navbar-brand mr-1" href="../template/index.php">Administração</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -161,21 +170,6 @@
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <h6 class="dropdown-header">Opções</h6>
           <a class="dropdown-item" href="../fotosvideos/inserir.php">Criar</a>
-          <a class="dropdown-item" href="forgot-password.html">Listar</a>
-          <!--<div class="dropdown-divider">Otras Opciones</div>
-          <h6 class="dropdown-header">Listar</h6>
-          <a class="dropdown-item" href="404.html">Ver</a>
-          <a class="dropdown-item" href="blank.html"></a>-->
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-envelope"></i>
-          <span>Mensagens</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">Opções</h6>
-          <a class="dropdown-item" href="forgot-password.html">Deletar</a>
           <a class="dropdown-item" href="forgot-password.html">Listar</a>
           <!--<div class="dropdown-divider">Otras Opciones</div>
           <h6 class="dropdown-header">Listar</h6>

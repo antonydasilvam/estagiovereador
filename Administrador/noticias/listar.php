@@ -32,7 +32,7 @@
             foreach ($listar as $linha) {
                 ?>
                   <tr>
-                    <td><a href="vercompleta.php?ID=<?php echo $linha['id']; ?>"><?php echo $linha['nome']; ?></a></td>
+                    <td><a href="vercompleta.php?ID=<?php echo $linha['id']; ?>"><?php echo $linha['titulo']; ?></a></td>
                     <td><?php echo $linha['numero']; ?></td>
                     <td><a href="ver.php"><i class="fas fa-edit"></i> Editar</a></td>
                     <td><a href="excluir.php?ID=<?php echo $linha['id']; ?>"><i class="fas fa-times"></i> Eliminar</a></td>

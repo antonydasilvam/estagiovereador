@@ -3,7 +3,7 @@
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Inserir Noticia</div>
       <div class="card-body">
-        <form action="" name="noticias"  method="POST">
+        <form action="" name="noticias"  method="POST"  enctype="multipart/form-data">
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
@@ -19,20 +19,25 @@
           </div>
           <div class="form-group">
             <div class="form-label-group">
-              <select id="inputServico" name="fktiponoticia" class="form-control" required="required">
+              <select id="inputServico" name="tiponoticia" class="form-control" required="required">
               <option for="inputServico" value='0'>Seleccione Serviço</option>
-              <option for="inputServico"value='1'>Causa Animal</option>
-              <option for="inputServico"value='2'>Comunidade</option>
-              <option for="inputServico"value='3'>Educação</option>
-              <option for="inputServico"value='4'>Saude</option>
-              <option for="inputServico"value='5'>Nenhum</option>
+              <option for="inputServico"value='Causa Animal'>Causa Animal</option>
+              <option for="inputServico"value='Comunidade'>Comunidade</option>
+              <option for="inputServico"value='Educacao'>Educação</option>
+              <option for="inputServico"value='Saude'>Saude</option>
+              <option for="inputServico"value='Nenhum'>Nenhum</option>
               </select>
             </div>
           </div>
           <div class="form-group">
             <div class="form-label-group">
-              <input type="file" id="foto" class="form-control" required="required" >
-              <label for="imagem">Imagens</label>
+            <input type="date" id="firstName" class="form-control" name="datant" placeholder="Data" required="required" autofocus="autofocus">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="file" id="portada" name="portada" class="form-control" required="required" >
+              <label for="portada">Portada</label>
             </div>
           </div>
           <div class="form-group">
@@ -58,55 +63,50 @@
   </div>
 
 
-  <?php
+ <?php
 include_once 'funcoes.class.php';
 include_once 'dadosnoticias.php';
 
-//Imagem
-
-include_once '../fotosvideos/funcoes.class.php';
-include_once '../fotosvideos/dadosimagens.php';
-
-//xd
 if (isset($_POST['Cadastro'])) {
-    $dadosnoticias = new DadosNoticias();
-    $dadosnoticias->setTitulo($_POST['titulo']);
-    $dadosnoticias->setDescricao($_POST['descricao']);
-    $dadosimagens->setFktiponoticia($_POST['fktiponoticia']);
-    
-    $dadosimagens = new DadosImagens();
-    $dadosimagens->setFknoticia($_POST['Fknoticia']);
-  
-    $nombreimg=$_FILES['imagem']['name'];
-    $nombreTemporario = $_FILES['imagem']['tmp_name'];
-    $destino = '../fotosvideos/img/'.$nombreimg;
+  $dadosnoticias = new DadosNoticias();
+  $dadosnoticias->setTitulo($_POST['titulo']);
+  $dadosnoticias->setDescricao($_POST['descricao']);
+  $dadosnoticias->setTiponoticia($_POST['tiponoticia']);
+  $dadosnoticias->setDatant($_POST['datant']);
+
+    $nombreimg=$_FILES['portada']['name'];
+    $nombreTemporario = $_FILES['portada']['tmp_name'];
+    $destino = 'portadas/'.$nombreimg;
     //move_uploaded_file($nombreTemporario, $destino)
     if (move_uploaded_file($nombreTemporario,$destino))
     {
-        echo "<center>foto enviada con exito</center>";
+        echo "";
     }
     else{
-        "<center>Error al insertar foto</center>";
+        "<center>Erro ao insertar portada</center>";
     }
 
-    $gabinete->foto = $nombreimg;
+    $dadosnoticias->portada = $nombreimg;
 
     
-
-    $funcoesimg = new FuncoesImagens();
-    $funcoesimg->inserir($dadosimagens);
-
     $funcoes = new FuncoesNoticias();
     $funcoes->inserir($dadosnoticias);
 
     if($funcoes){
-         echo "<b>Noticia cadastrada com sucesso</b>";
+         echo "<b>Noticia cadastrada com sucesso <a href='../fotosvideos/inserir.php'>Clique aqui para inserir imagens na noticia</a></b>";
     }else{
       
-      echo "<b>Erro ao cadastrar Noticia</b>";
+      echo "<b>Erro ao cadastrar noticia</b>";
     }
   }
 ?>
+  <?php
+  include_once '../footer.php';
+  ?>
+
+
+
+
   <?php
   include_once '../footer.php';
   ?>

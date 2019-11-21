@@ -35,7 +35,7 @@
         <div class="modal-body">Confirme o encerramento da sessão em Logout.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary" href="../template/login.html">Sair</a>
+          <a class="btn btn-primary" href="../template/destruirsesion.php">Sair</a>
         </div>
       </div>
     </div>

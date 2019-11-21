@@ -1,6 +1,7 @@
 <?php
 
 include_once 'dadosnoticias.php';
+include_once '../fotosvideos/dadosimagens.php';
 
 include_once '../../conexao.php';
 
@@ -11,11 +12,13 @@ class FuncoesNoticias extends Conexao {
         try {
             $conecta = $this->conectar();
             $conecta->beginTransaction();
-            $sql = "INSERT INTO noticias(titulo,descricao, fk_tiponoticia) VALUES(:titulo,:descricao, :fktiponoticia)";
+            $sql = "INSERT INTO noticias(titulo, tiponoticia,descricao, datant, portada) VALUES(:titulo, :tiponoticia,:descricao, :datant, :portada)";
             $statement = $conecta->prepare($sql);
             $statement->bindvalue(":titulo", $dadosnoticias->getTitulo());
+            $statement->bindvalue(":tiponoticia", $dadosnoticias->getTiponoticia());
             $statement->bindvalue(":descricao", $dadosnoticias->getDescricao());
-            $statement->bindvalue(":fktiponoticia", $dadosnoticias->getFktiponoticia());
+            $statement->bindvalue(":datant", $dadosnoticias->getDatant());
+            $statement->bindvalue(":portada", $dadosnoticias->getPortada());
             $execute = $statement->execute();
             if ($execute == true) {
                 $conecta->commit();
@@ -36,12 +39,11 @@ class FuncoesNoticias extends Conexao {
     }
 
 
-
     function listar() {
         try {
             $conecta = $this->conectar();
             $conecta->beginTransaction();
-            $sql = "SELECT * FROM noticias order by nome";
+            $sql = "SELECT * FROM noticias order by datant";
             $listar = $conecta->prepare($sql);
             $listar->execute();
 

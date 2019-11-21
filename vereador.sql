@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-10-2019 a las 06:38:44
+-- Tiempo de generación: 21-11-2019 a las 20:28:32
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.4
 
@@ -34,18 +34,12 @@ CREATE TABLE `administradores` (
   `senha` varchar(50) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `contatos`
+-- Volcado de datos para la tabla `administradores`
 --
 
-CREATE TABLE `contatos` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `nome` varchar(100) COLLATE utf8_bin NOT NULL,
-  `email` varchar(150) COLLATE utf8_bin NOT NULL,
-  `mensagem` varchar(2000) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+INSERT INTO `administradores` (`id`, `usuario`, `senha`) VALUES
+(1, 'yo', 'yotambien');
 
 -- --------------------------------------------------------
 
@@ -67,7 +61,8 @@ CREATE TABLE `gabinete` (
 INSERT INTO `gabinete` (`id`, `nome`, `cargo`, `foto`) VALUES
 (10, 'Antonio Zenoir', 'Vereador', 'personax2.jpg'),
 (12, 'Daniel Sant\'Anna', 'Assessor', 'personax2.jpg'),
-(13, 'Rafael Kohanoski', 'Assessor', 'personax2.jpg');
+(13, 'Rafael Kohanoski', 'Assessor', 'personax2.jpg'),
+(16, 'Antony', 'Estagiario', 'AntonioF1.jpeg');
 
 -- --------------------------------------------------------
 
@@ -90,9 +85,20 @@ CREATE TABLE `imagens` (
 CREATE TABLE `noticias` (
   `id` int(10) UNSIGNED NOT NULL,
   `titulo` varchar(100) COLLATE utf8_bin NOT NULL,
+  `tiponoticia` varchar(100) COLLATE utf8_bin NOT NULL,
   `descricao` varchar(5000) COLLATE utf8_bin NOT NULL,
-  `fk_tiponoticia` int(11) UNSIGNED NOT NULL
+  `datant` date NOT NULL,
+  `portada` varchar(250) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `noticias`
+--
+
+INSERT INTO `noticias` (`id`, `titulo`, `tiponoticia`, `descricao`, `datant`, `portada`) VALUES
+(1, 'Aaaaa', '1', 'Asdadsadsaads', '2019-11-07', 'comunidade.jpg'),
+(2, 'Aasdaas', '3', 'Aaaaaaaaaaa', '2019-11-07', 'saude.jpg'),
+(3, 'Asdasdsa', 'Saude', 'Aaaaa', '2019-11-01', 'about-bg.jpg');
 
 -- --------------------------------------------------------
 
@@ -106,17 +112,6 @@ CREATE TABLE `telefonesuteis` (
   `numero` varchar(20) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tiponoticia`
---
-
-CREATE TABLE `tiponoticia` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `nome` varchar(75) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
 --
 -- Índices para tablas volcadas
 --
@@ -125,12 +120,6 @@ CREATE TABLE `tiponoticia` (
 -- Indices de la tabla `administradores`
 --
 ALTER TABLE `administradores`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `contatos`
---
-ALTER TABLE `contatos`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -150,19 +139,12 @@ ALTER TABLE `imagens`
 -- Indices de la tabla `noticias`
 --
 ALTER TABLE `noticias`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `noticias_ibfk_1` (`fk_tiponoticia`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `telefonesuteis`
 --
 ALTER TABLE `telefonesuteis`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `tiponoticia`
---
-ALTER TABLE `tiponoticia`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -173,19 +155,13 @@ ALTER TABLE `tiponoticia`
 -- AUTO_INCREMENT de la tabla `administradores`
 --
 ALTER TABLE `administradores`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `contatos`
---
-ALTER TABLE `contatos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `gabinete`
 --
 ALTER TABLE `gabinete`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `imagens`
@@ -197,18 +173,12 @@ ALTER TABLE `imagens`
 -- AUTO_INCREMENT de la tabla `noticias`
 --
 ALTER TABLE `noticias`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `telefonesuteis`
 --
 ALTER TABLE `telefonesuteis`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `tiponoticia`
---
-ALTER TABLE `tiponoticia`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -220,12 +190,6 @@ ALTER TABLE `tiponoticia`
 --
 ALTER TABLE `imagens`
   ADD CONSTRAINT `fk_imagens_noticias` FOREIGN KEY (`fk_noticia`) REFERENCES `noticias` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `noticias`
---
-ALTER TABLE `noticias`
-  ADD CONSTRAINT `noticias_ibfk_1` FOREIGN KEY (`fk_tiponoticia`) REFERENCES `tiponoticia` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

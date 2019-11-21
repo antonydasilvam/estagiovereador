@@ -1,18 +1,27 @@
 <?php include '../../Administrador/gabinete/funcoes.class.php';
+  include '../../Administrador/telefonesuteis/funcoes.class.php';
+
+
+
+
   $gabinete = new Funcoes();
   $listar = $gabinete->listar();
+
+  $telefonesuteis = new FuncoesTelefonesUteis();
+  $listartf = $telefonesuteis->listar();
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>BizPage Bootstrap Template</title>
+  <title>Vereador Antonio Zenoir</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
+  <link href="img/antonio/psd.png" rel="icon">
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -30,6 +39,7 @@
 
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
+  <link href="css/EnviarMSG.css" rel="stylesheet">
 
   <!-- =======================================================
     Theme Name: BizPage
@@ -57,7 +67,7 @@
         <ul class="nav-menu">
           <li class="menu-active"><a href="#intro">Inicio</a></li>
           <li><a href="#about">Sobre</a></li>
-          <li><a href="#services">Serviços</a></li>
+          <li><a href="#portfolio">Noticias</a></li>
          <!-- <li><a href="#portfolio">Portfolio</a></li>-->
           <li><a href="#team">Equipe</a></li>
           <li class="menu-has-children"><a href="">Redes</a>
@@ -90,8 +100,8 @@
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2>Causa Animal</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <a href="#featured-services" class="btn-get-started scrollto">Mais Informação</a>
+                <p>Os animais também têm direitos e estamos dispostos a ajudá-los.</p>
+                <a href="#about" class="btn-get-started scrollto">Mais Informação</a>
               </div>
             </div>
           </div>
@@ -101,8 +111,8 @@
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2>Comunidade</h2>
-                <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut.</p>
-                <a href="#featured-services" class="btn-get-started scrollto">Mais Informação</a>
+                <p>Dispostos a servir e ajudar a melhorar a qualidade de vida.</p>
+                <a href="#about" class="btn-get-started scrollto">Mais Informação</a>
               </div>
             </div>
           </div>
@@ -112,8 +122,8 @@
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2>Educação</h2>
-                <p>Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt omnis iste natus error sit voluptatem accusantium.</p>
-                <a href="#featured-services" class="btn-get-started scrollto">Mais Informação</a>
+                <p>Com a educação você vai muito mais longe.</p>
+                <a href="#about" class="btn-get-started scrollto">Mais Informação</a>
               </div>
             </div>
           </div>
@@ -123,8 +133,8 @@
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2>Saúde</h2>
-                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum.</p>
-                <a href="#featured-services" class="btn-get-started scrollto">Mais Informação</a>
+                <p>Melhor saúde significa maior segurança em nossas vidas.</p>
+                <a href="#about" class="btn-get-started scrollto">Mais Informação</a>
               </div>
             </div>
           </div>
@@ -186,7 +196,17 @@
 
         <header class="section-header">
           <h3>Sobre Antonio Zenoir</h3>
-          <p>Antonio Zenoir tem X anos, ele foi escoteiro e vereador faz tantos anos, ele realiza varios servicos e luta por diversas causas, elas sao, Causa Animal, Saude, Educacao e Comunidade</p>
+          <p>Natural de Porto Alegre, Santanense desde 1978, chamado carinhosamente e reconhecido em nossa cidade como "Nosso Diretor" ,esteve a frente por mais de 19 anos de Escolas importantes, como as Escolas Estaduais Nossa Senhora do Livramento e Professor Chaves.
+Mais de 35 anos dedicado ao magistério com graduação em Pedagogia na extinta ASPEs em 1988 e Pós-graduado na UFRGS em Gestão Escolar em 2009.
+Tem a área da educação como uma das 4 causas mais importantes que o Vereador Antonio Zenoir defende.
+Com uma ativa participação em Movimentos Sociais e  voluntário no Movimento Escoteiro, o Vereador Antonio Zenoir, traçou sua vida dentro de valores como ética, lealdade, liderança e dedicação no que se dispôs a fazer dentro de principal lema que é "SERVIR"!
+Recebeu ao longo de sua história vários reconhecimentos e condecorações:
+- Diploma "O Mestre", no Legislativo Municipal, pela sua carreira no magistério;
+- Certificado de Reconhecimento Público, no Executivo Municipal, pelo seu trabalho social;
+- Medalha de Bons Serviços 15 anos, concedida pela União dos Escoteiros do Brasil, pela liderança que exerceu frente aos Grupos Escoteiros Gen. Flores da Cunha 157/RS e Duque de Caxias 369/RS e no 12° Distrito Escoteiro como Comissário Distrital;
+- Medalha Gratidão Bronze, concedida pela União dos Escoteiros do Brasil por seus serviços prestado na implantação e manutenção do movimento escoteiro em Sant'Ana do Livramento;
+Além de reconhecimentos de entidades como "Amigo da Conferência" da Conferência São Vicente de Paulo, "Apoiador do PROERD" da Brigada Militar e "Amigo do CLJ" pela sua vivência e essência cristã.
+Como legislador luta por uma gestão  de qualidade na educação, na sáude, na causa animal, além de atender a todos da comunidade pessoalmente, o vereador Antonio Zenoir realiza um atendimento diferenciado nas redes sociais com canais que somente o seu gabinete tem, como o "Gabinete Digital", que nada mais é que um canal direto de comunicação dos Santanense com suas demandas.</p>
         </header>
 
         <div class="row about-cols">
@@ -367,21 +387,22 @@
 
     <!--==========================
       Portfolio Section
-    ============================--
+    ============================-->
     <section id="portfolio"  class="section-bg" >
       <div class="container">
 
         <header class="section-header">
-          <h3 class="section-title">Our Portfolio</h3>
+          <h3 class="section-title">Ultimas Noticias</h3>
         </header>
 
         <div class="row">
           <div class="col-lg-12">
             <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
+              <li data-filter="*" class="filter-active">Todas</li>
+              <li data-filter=".filter-app">Comunidade</li>
+              <li data-filter=".filter-card">Causa Animal</li>
+              <li data-filter=".filter-web">Educação</li>
+              <li data-filter="*">Saude</li>
             </ul>
           </div>
         </div>
@@ -397,8 +418,8 @@
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#">App 1</a></h4>
-                <p>App</p>
+                <h4><a href="#">Exemplo de noticia 1 </a></h4>
+                <p>Comunidade</p>
               </div>
             </div>
           </div>
@@ -412,8 +433,8 @@
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#">Web 3</a></h4>
-                <p>Web</p>
+                <h4><a href="#">Exemplo de noticia 2</a></h4>
+                <p>Educação</p>
               </div>
             </div>
           </div>
@@ -427,8 +448,8 @@
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#">App 2</a></h4>
-                <p>App</p>
+                <h4><a href="#">Exemplo de noticia 3</a></h4>
+                <p>Comunidade</p>
               </div>
             </div>
           </div>
@@ -442,8 +463,8 @@
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#">Card 2</a></h4>
-                <p>Card</p>
+                <h4><a href="#">Exemplo de noticia 4</a></h4>
+                <p>Causa Animal</p>
               </div>
             </div>
           </div>
@@ -457,8 +478,8 @@
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#">Web 2</a></h4>
-                <p>Web</p>
+                <h4><a href="#">Exemplo de noticia 5</a></h4>
+                <p>Educação</p>
               </div>
             </div>
           </div>
@@ -472,8 +493,8 @@
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#">App 3</a></h4>
-                <p>App</p>
+                <h4><a href="#">Exemplo de noticia 6</a></h4>
+                <p>Comunidade</p>
               </div>
             </div>
           </div>
@@ -487,8 +508,8 @@
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#">Card 1</a></h4>
-                <p>Card</p>
+                <h4><a href="#">Exemplo de noticia 7</a></h4>
+                <p>Causa Animal</p>
               </div>
             </div>
           </div>
@@ -502,8 +523,8 @@
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#">Card 3</a></h4>
-                <p>Card</p>
+                <h4><a href="#">Exemplo de noticia 8</a></h4>
+                <p>Causa Animal</p>
               </div>
             </div>
           </div>
@@ -517,7 +538,7 @@
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#">Web 1</a></h4>
+                <h4><a href="#">Exemplo de noticia 9</a></h4>
                 <p>Web</p>
               </div>
             </div>
@@ -530,7 +551,7 @@
 
     <!--==========================
       Clients Section
-    ============================-->
+    ============================--
     <section id="clients" class="wow fadeInUp">
       <div class="container">
 
@@ -643,12 +664,6 @@
                 <div class="member-info-content">
                   <h4><?php echo $linha['nome']; ?></h4>
                   <span><?php echo $linha['cargo']; ?></span>
-                  <div class="social">
-                    <a href=""><i class="fa fa-twitter"></i></a>
-                    <a href=""><i class="fa fa-facebook"></i></a>
-                    <a href=""><i class="fa fa-instagram"></i></a>
-                    <a href=""><i class="fa fa-linkedin"></i></a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -703,7 +718,7 @@
         <div class="form">
           <div id="sendmessage">Sua mensagem foi enviada com sucesso!</div>
           <div id="errormessage"></div>
-          <form action="" method="post" role="form" class="contactForm">
+          <form action="../../Administrador/mensagens/inserir.php" method="post" role="form" class="contactForm">
             <div class="form-row">
               <div class="form-group col-md-6">
                 <input type="text" name="nome" class="form-control" id="name" placeholder="Nome Completo" data-rule="minlen:4" data-msg="Digite o nome completo" />
@@ -718,7 +733,8 @@
               <textarea class="form-control" name="mensagem" rows="5" data-rule="required" data-msg="Digite sua mensagem" placeholder="Mensagem"></textarea>
               <div class="validation"></div>
             </div>
-            <div class="text-center"><button type="submit">Enviar</button></div>
+            <!--<div class="text-center"><button type="submit">Enviar</button></div>-->
+            <div class="text-center"><input type='submit' value='Enviar' id='EnviarMensaje'/></div>
           </form>
         </div>
 
@@ -736,27 +752,37 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-info">
-            <h3>Antonio Zenoir</h3>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
+          <a href="https://www.santanadolivramento.rs.leg.br"><img src="img/antonio/logo.png" width="130" height="130"alt="logo"></a>
+            <p></p>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Telefones Uteis</h4><?php //foreach ($listartf as $linhatf){ ?>
             <ul>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Home</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">About us</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Services</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
+            <li><i class="ion-ios-arrow-right"></i> <a href="#contact">Prefeitura Municipal: (55) 3244-3158</a></li>
+            <li><i class="ion-ios-arrow-right"></i> <a href="#contact">Associação Comercial e Industrial de Livramento: (55) 3242-3200</a></li>
+            <li><i class="ion-ios-arrow-right"></i> <a href="#contact">RGE SUL: 0800-7077272</a></li>
+            <li><i class="ion-ios-arrow-right"></i> <a href="#contact">Casa do Advogado: (55) 3242-1332</a></li>
+              
+              <li><i class="ion-ios-arrow-right"></i> <a href="#"><?php //echo $linhatf['numero']; ?> </a></li>
+            </ul><?php //} ?>
           </div>
 
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h4>Contact Us</h4>
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Ejemplo 1</h4>
+            <ul>
+            <li><i class="ion-ios-arrow-right"></i> <a href="#contact">Prefeitura Municipal: (55) 3244-3158</a></li>
+            <li><i class="ion-ios-arrow-right"></i> <a href="#contact">Associação Comercial e Industrial de Livramento: (55) 3242-3200</a></li>
+            <li><i class="ion-ios-arrow-right"></i> <a href="#contact">RGE SUL: 0800-7077272</a></li>
+            <li><i class="ion-ios-arrow-right"></i> <a href="#contact">Casa do Advogado: (55) 3242-1332</a></li>
+              
+              <li><i class="ion-ios-arrow-right"></i> <a href="#"><?php //echo $linhatf['numero']; ?> </a></li>
+            </ul>
+            <!--
             <p>
               A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br>
+              <br>
+               <br>
               <strong>Phone:</strong> +1 5589 55488 55<br>
               <strong>Email:</strong> info@example.com<br>
             </p>
@@ -768,15 +794,15 @@
               <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
               <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
             </div>
-
+-->
           </div>
 
           <div class="col-lg-3 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
+          <a href="../../Administrador/template/login.php"><img src="img/antonio/gabinetedigital.jpeg" width="130" height="130" alt="logo"></a><!--
             <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem marada parida nodela caramase seza.</p>
             <form action="" method="post">
               <input type="email" name="email"><input type="submit"  value="Subscribe">
-            </form>
+            </form>-->
           </div>
 
         </div>

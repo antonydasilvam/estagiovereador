@@ -23,18 +23,18 @@
 
   <div class="container">
     <div class="card card-login mx-auto mt-5">
-      <div class="card-header">Login</div>
+      <div class="card-header">ÁREA RESTRITA</div>
       <div class="card-body">
-        <form>
+        <form method="POST" action="login_ok.php">
           <div class="form-group">
             <div class="form-label-group">
-              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
-              <label for="inputEmail">Email</label>
+              <input type="text" name="usuario" id="inputEmail" class="form-control" placeholder="ejemplo@gmail.com" required="required" autofocus="autofocus">
+              <label for="inputEmail">Usuario</label>
             </div>
           </div>
           <div class="form-group">
             <div class="form-label-group">
-              <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required="required">
+              <input type="password" name="senha" id="inputPassword" class="form-control" placeholder="Senha" required="required">
               <label for="inputPassword">Senha</label>
             </div>
           </div>
@@ -46,12 +46,9 @@
               </label>
             </div>-->
           </div>
-          <a class="btn btn-primary btn-block" href="index.html">Login</a>
+          <!--<a class="btn btn-primary btn-block" href="index.html">Ingresar</a>-->
+          <input type="submit" value="Ingresar" class="btn btn-primary btn-block"/>
         </form>
-        <div class="text-center">
-          <a class="d-block small mt-3" href="register.html">Esqueci o email</a>
-          <a class="d-block small" href="forgot-password.html">Perdi a senha</a>
-        </div>
       </div>
     </div>
   </div>
@@ -66,3 +63,4 @@
 </body>
 
 </html>
+
