@@ -40,7 +40,7 @@ class FuncoesImagens extends Conexao {
         try {
             $conecta = $this->conectar();
             $conecta->beginTransaction();
-            $sql = "SELECT * FROM imagens order by fk_noticia";
+            $sql = "SELECT * FROM imagens order by fk_noticia LIMIT 10";
             $listar = $conecta->prepare($sql);
             $listar->execute();
 

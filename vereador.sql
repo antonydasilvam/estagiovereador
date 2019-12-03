@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-11-2019 a las 20:28:32
+-- Tiempo de generación: 29-11-2019 a las 09:24:07
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.4
 
@@ -59,10 +59,10 @@ CREATE TABLE `gabinete` (
 --
 
 INSERT INTO `gabinete` (`id`, `nome`, `cargo`, `foto`) VALUES
-(10, 'Antonio Zenoir', 'Vereador', 'personax2.jpg'),
-(12, 'Daniel Sant\'Anna', 'Assessor', 'personax2.jpg'),
-(13, 'Rafael Kohanoski', 'Assessor', 'personax2.jpg'),
-(16, 'Antony', 'Estagiario', 'AntonioF1.jpeg');
+(18, 'Antonio Zenoir', 'Vereador', 'personax2.jpg'),
+(19, 'Rafael Kohanoski', 'Assessor', 'personax2.jpg'),
+(20, 'Daniel Sant\'Anna', 'Assessor', 'personax2.jpg'),
+(21, 'Antony da Silva', 'Estagiario', 'personax2.jpg');
 
 -- --------------------------------------------------------
 
@@ -75,6 +75,22 @@ CREATE TABLE `imagens` (
   `imagem` varchar(1000) COLLATE utf8_bin NOT NULL,
   `fk_noticia` int(11) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `imagens`
+--
+
+INSERT INTO `imagens` (`id`, `imagem`, `fk_noticia`) VALUES
+(16, '3noticia1.jpg', 13),
+(17, '3noticia4.jpg', 13),
+(18, '3noticia5.jpg', 13),
+(19, '3noticia6.jpg', 13),
+(20, '3noticia7.jpg', 13),
+(21, '3noticia8.jpg', 13),
+(22, 'noticia2.jpg', 15),
+(23, 'noticia3.jpg', 15),
+(24, 'noticia4.jpg', 15),
+(25, '2noticia.jpg', 14);
 
 -- --------------------------------------------------------
 
@@ -96,9 +112,9 @@ CREATE TABLE `noticias` (
 --
 
 INSERT INTO `noticias` (`id`, `titulo`, `tiponoticia`, `descricao`, `datant`, `portada`) VALUES
-(1, 'Aaaaa', '1', 'Asdadsadsaads', '2019-11-07', 'comunidade.jpg'),
-(2, 'Aasdaas', '3', 'Aaaaaaaaaaa', '2019-11-07', 'saude.jpg'),
-(3, 'Asdasdsa', 'Saude', 'Aaaaa', '2019-11-01', 'about-bg.jpg');
+(13, 'Assambleia Legislativa', 'Nenhum', 'ASSEMBLEIA LEGISLATIVA DO ESTADO DO RIO GRANDE DO SUL.\r\n\r\nOBJETIVO alcançado, entregamos em mãos, juntamente com a presidente do CPERS prof. Helenir e diversos VEREADORES do Estado do RS, um requerimento ao Pres. Dep. Luis Augusto Lara, solicitando a retirada do Regime de Urgência do projeto com o Pacote de medidas de alterações do Plano de Carreira do Magistério Público Estadual, no Estatuto do Servidor Público e na Previdência Estadual.', '2019-11-26', '3noticia2.jpg'),
+(14, 'Entrevista a Rádio RCC', 'Comunidade', 'Segue muito POSITIVA A REPERCUSSÃO da mobilização realizada pelo Vereador Antonio Zenoir contra o pacote de medidas do Governo do Estado com vereadores de várias cidades do Rio Grande do Sul no dia de ontem na Assembleia Legislativa.', '2019-11-27', '2noticia.jpg'),
+(15, 'Assembleia Geral do CPERS', 'Comunidade', 'Momento HISTÓRICO e de muita emoção vividos no dia 26.11.19 durante a Assembleia Geral do CPERS...sem palavras minhas colegas queridas!!! Muito obrigado!!!', '2019-11-28', 'noticia1.jpg');
 
 -- --------------------------------------------------------
 
@@ -111,6 +127,14 @@ CREATE TABLE `telefonesuteis` (
   `nome` varchar(100) COLLATE utf8_bin NOT NULL,
   `numero` varchar(20) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `telefonesuteis`
+--
+
+INSERT INTO `telefonesuteis` (`id`, `nome`, `numero`) VALUES
+(1, 'Prefeitura', '5532443158'),
+(3, 'ACIL', '5532423200');
 
 --
 -- Índices para tablas volcadas
@@ -161,25 +185,25 @@ ALTER TABLE `administradores`
 -- AUTO_INCREMENT de la tabla `gabinete`
 --
 ALTER TABLE `gabinete`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `imagens`
 --
 ALTER TABLE `imagens`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `noticias`
 --
 ALTER TABLE `noticias`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `telefonesuteis`
 --
 ALTER TABLE `telefonesuteis`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas

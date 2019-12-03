@@ -12,7 +12,7 @@
     $funcoes->excluir($telefonesuteis);
     
     if($funcoes){
-        echo "<center>Telefone eliminado con exito.</center>";
+        exit(header("Location:listar.php"));
         
     }
     else{

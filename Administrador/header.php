@@ -170,8 +170,8 @@ if(!isset($_SESSION['login'])){
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <h6 class="dropdown-header">Opções</h6>
           <a class="dropdown-item" href="../fotosvideos/inserir.php">Criar</a>
-          <a class="dropdown-item" href="forgot-password.html">Listar</a>
-          <!--<div class="dropdown-divider">Otras Opciones</div>
+          <!--<a class="dropdown-item" href="forgot-password.html">Listar</a>
+          <div class="dropdown-divider">Otras Opciones</div>
           <h6 class="dropdown-header">Listar</h6>
           <a class="dropdown-item" href="404.html">Ver</a>
           <a class="dropdown-item" href="blank.html"></a>-->

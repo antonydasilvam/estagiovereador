@@ -3,14 +3,16 @@
   
   include_once "../../Administrador/noticias/funcoes.class.php";
   include_once '../../Administrador/noticias/dadosnoticias.php';
-  
+
   include_once "../../Administrador/telefonesuteis/funcoes.class.php";
   include_once '../../Administrador/telefonesuteis/dadostelefonesuteis.php';
 
+
   $funcoesnoticias = new FuncoesNoticias();
-  $listarnoticia = $funcoesnoticias->listarlimit();
+  $listarnoticia = $funcoesnoticias->listarUnico($_GET['ID']);
 
-
+  $funcoesimagens = new FuncoesNoticias();
+  $listarimagens = $funcoesimagens->listarImagens($_GET['ID']);
 
   $gabinete = new Funcoes();
   $listar = $gabinete->listar();
@@ -78,12 +80,7 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="#intro">Inicio</a></li>
-          <li><a href="#about">Sobre</a></li>
-          <li><a href="#portfolio">Noticias</a></li>
-         <!-- <li><a href="#portfolio">Portfolio</a></li>-->
-          <li><a href="#team">Equipe</a></li>
-          <li><a href="#contact">Contato</a></li>
-          
+          <li><a href="#about">Noticia</a></li> 
           <li class="menu-has-children"><a href="">Telefones Uteis</a>
             <ul>
       <?php foreach ($listartelefones as $linhatelefone){ ?>
@@ -91,6 +88,7 @@
               <?php } ?>
             </ul>
           </li>
+          <li class="menu-active"><a href="index.php">Voltar</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -171,7 +169,9 @@
 
   <main id="main">
 
-
+    <!--==========================
+      Portfolio Section
+    ============================-->
     <!--==========================
       About Us Section
     ============================-->
@@ -179,92 +179,25 @@
       <div class="container">
 
         <header class="section-header">
-          <h3>Sobre Antonio Zenoir</h3>
-          <p>Natural de Porto Alegre, Santanense desde 1978, chamado carinhosamente e reconhecido em nossa cidade como "Nosso Diretor" ,esteve a frente por mais de 19 anos de Escolas importantes, como as Escolas Estaduais Nossa Senhora do Livramento e Professor Chaves.
-Mais de 35 anos dedicado ao magistério com graduação em Pedagogia na extinta ASPEs em 1988 e Pós-graduado na UFRGS em Gestão Escolar em 2009.
-Tem a área da educação como uma das 4 causas mais importantes que o Vereador Antonio Zenoir defende.
-Com uma ativa participação em Movimentos Sociais e  voluntário no Movimento Escoteiro, o Vereador Antonio Zenoir, traçou sua vida dentro de valores como ética, lealdade, liderança e dedicação no que se dispôs a fazer dentro de principal lema que é "SERVIR"!
-Recebeu ao longo de sua história vários reconhecimentos e condecorações:
-- Diploma "O Mestre", no Legislativo Municipal, pela sua carreira no magistério;
-- Certificado de Reconhecimento Público, no Executivo Municipal, pelo seu trabalho social;
-- Medalha de Bons Serviços 15 anos, concedida pela União dos Escoteiros do Brasil, pela liderança que exerceu frente aos Grupos Escoteiros Gen. Flores da Cunha 157/RS e Duque de Caxias 369/RS e no 12° Distrito Escoteiro como Comissário Distrital;
-- Medalha Gratidão Bronze, concedida pela União dos Escoteiros do Brasil por seus serviços prestado na implantação e manutenção do movimento escoteiro em Sant'Ana do Livramento;
-Além de reconhecimentos de entidades como "Amigo da Conferência" da Conferência São Vicente de Paulo, "Apoiador do PROERD" da Brigada Militar e "Amigo do CLJ" pela sua vivência e essência cristã.
-Como legislador luta por uma gestão  de qualidade na educação, na sáude, na causa animal, além de atender a todos da comunidade pessoalmente, o vereador Antonio Zenoir realiza um atendimento diferenciado nas redes sociais com canais que somente o seu gabinete tem, como o "Gabinete Digital", que nada mais é que um canal direto de comunicação dos Santanense com suas demandas.</p>
+        <?php foreach ($listarnoticia as $linhanoticia){ ?>
+          <h3><?php echo $linhanoticia['titulo']; ?></h3>
+          <p><?php echo $linhanoticia['descricao']; ?></p><?php } ?>
         </header>
 
         <div class="row about-cols">
-
+        <?php foreach ($listarimagens as $linhaimagens){ ?>
           <div class="col-md-4 wow fadeInUp">
             <div class="about-col">
               <div class="img">
-                <img src="img/antonio/AntonioF4e.jpg" alt="" class="img-fluid">
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="about-col">
-              <div class="img">
-                <img src="img/antonio/AntonioF1.jpeg" alt="" class="img-fluid">
-              </div>
-              
-            </div>
-          </div>
-
-          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
-            <div class="about-col">
-              <div class="img">
-                <img src="img/antonio/AntonioF3e.jpg" alt="" class="img-fluid">
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- #about -->
-
-
-    <!--==========================
-      Portfolio Section
-    ============================-->
-    <section id="portfolio"  class="section-bg" >
-      <div class="container">
-
-        <header class="section-header">
-          <h3 class="section-title">Ultimas Noticias</h3>
-        </header>
-
-        <div class="row">
-          <div class="col-lg-12">
-            <ul id="portfolio-flters">
-            </ul>
-          </div>
-        </div>
-
-        <div class="row portfolio-container">
-      <?php foreach ($listarnoticia as $linhanoticia){ ?>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="../../Administrador/noticias/portadas/<?php echo $linhanoticia['portada']; ?>" class="img-fluid" alt="">
-                <a href="../../Administrador/noticias/portadas/<?php echo $linhanoticia['portada']; ?>" data-lightbox="portfolio" data-title="Data de Publicação: <?php   $datenueva = explode("-", $linhanoticia['datant']);  echo "".$datenueva[2]."/".$datenueva[1]."/".$datenueva[0]."";?> " class="link-preview" title="Previsualizar"><i class="ion ion-eye"></i></a>
-                <a href="veruna.php?ID=<?php echo $linhanoticia['id']; ?>" class="link-details" title="Mas Detalhes"><i class="ion ion-android-open"></i></a>
-              </figure>
-              <div class="portfolio-info">
-                <h4><a href="veruna.php?ID=<?php echo $linhanoticia['id']; ?>"><?php echo $linhanoticia['titulo']; ?> </a></h4>
-                <p><?php echo $linhanoticia['tiponoticia']; ?></p>
+                <img src="../../Administrador/fotosvideos/img/<?php echo $linhaimagens['imagem']; ?>" alt="" class="img-fluid">
               </div>
             </div>
           </div>
           <?php } ?>
         </div>
-          
 
-        
       </div>
-    </section><!-- #portfolio -->
+    </section><!-- #about -->
 
     <!--==========================
       Clients Section
@@ -362,101 +295,10 @@ Como legislador luta por uma gestão  de qualidade na educação, na sáude, na 
       </div>
     </section><!-- #testimonials -->
 
-    <!--==========================
-      Team Section
-    ============================-->
-    <section id="team">
-      <div class="container">
-        <div class="section-header wow fadeInUp">
-          <h3>Equipe de Trabalho</h3>
-          <p></p>
-        </div>
-
-        <div class="row">
-          <?php foreach ($listar as $linha){ ?>
-          <div class="col-lg-3 col-md-6 wow fadeInUp">
-            <div class="member">
-              <img src="../../Administrador/gabinete/img/<?php echo $linha['foto']; ?>" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4><?php echo $linha['nome']; ?></h4>
-                  <span><?php echo $linha['cargo']; ?></span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <?php } ?>
-
-        </div>
-
-      </div>
-    </section><!-- #team -->
 
     <!--==========================
       Contact Section
     ============================-->
-    <section id="contact" class="section-bg wow fadeInUp">
-      <div class="container">
-
-        <div class="section-header">
-          <h3>Contate-nos</h3>
-          <p>Deixe sua mensagem ou você pode nos ver diretamente em nosso local</p>
-        </div>
-
-        <div class="row contact-info">
-
-          <div class="col-md-4">
-            <div class="contact-address">
-              <i class="ion-ios-location-outline"></i>
-              <h3>Localização</h3>
-              <address><a href="https://www.google.com/maps/place/Municipal+City+Council+of+Sant'Ana+do+Livramento/@-30.8894316,-55.5383615,15z/data=!4m5!3m4!1s0x0:0xb6e87e52eec1ff08!8m2!3d-30.8894316!4d-55.5383615">R. Sen. Salgado Filho, 528 - Centro, Santana do Livramento - RS, 97573-432, Brasil</a></address>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="contact-phone">
-              <i class="ion-ios-telephone-outline"></i>
-              <h3>Telefone</h3>
-              <p><a href="tel:+55984152836">+55 9 84152836</a></p>
-              <p><a href="tel:+3241-8624">+3241-8624</a></p>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="contact-email">
-              <i class="ion-ios-email-outline"></i>
-              <h3>E-mail</h3>
-              <p><a href="mailto:info@example.com">gabinetevereadorantoniozenoir@gmail.com</a></p>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="form">
-          <div id="sendmessage">Sua mensagem foi enviada com sucesso!</div>
-          <div id="errormessage"></div>
-          <form action="../../Administrador/mensagens/inserir.php" method="post" role="form" class="contactForm">
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <input type="text" name="nome" class="form-control" id="name" placeholder="Nome Completo" data-rule="minlen:4" data-msg="Digite o nome completo" />
-                <div class="validation"></div>
-              </div>
-              <div class="form-group col-md-6">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Email - exemplo@gmail.com" data-rule="email" data-msg="Email invalido" />
-                <div class="validation"></div>
-              </div>
-            </div>
-            <div class="form-group">
-              <textarea class="form-control" name="mensagem" rows="5" data-rule="required" data-msg="Digite sua mensagem" placeholder="Mensagem"></textarea>
-              <div class="validation"></div>
-            </div>
-            <!--<div class="text-center"><button type="submit">Enviar</button></div>-->
-            <div class="text-center"><input type='submit' value='Enviar' id='EnviarMensaje'/></div>
-          </form>
-        </div>
-
-      </div>
-    </section><!-- #contact -->
 
   </main>
 
@@ -468,7 +310,7 @@ Como legislador luta por uma gestão  de qualidade na educação, na sáude, na 
       <div class="container">
         <div class="row">
 
-          <div class="col-lg-3 col-md-6 footer-info">
+        <div class="col-lg-3 col-md-6 footer-info">
           <a href="https://www.santanadolivramento.rs.leg.br"><img src="img/antonio/logo.png" width="130" height="130"alt="logo"></a>
             <p></p>
           </div>

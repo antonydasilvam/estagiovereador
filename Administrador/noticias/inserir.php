@@ -23,7 +23,7 @@
               <option for="inputServico" value='0'>Seleccione Serviço</option>
               <option for="inputServico"value='Causa Animal'>Causa Animal</option>
               <option for="inputServico"value='Comunidade'>Comunidade</option>
-              <option for="inputServico"value='Educacao'>Educação</option>
+              <option for="inputServico"value='Educação'>Educação</option>
               <option for="inputServico"value='Saude'>Saude</option>
               <option for="inputServico"value='Nenhum'>Nenhum</option>
               </select>
