@@ -32,6 +32,8 @@ if(!isset($_SESSION['login'])){
   <!-- Iconos de FontAwesome-->
   
   <link href="../template/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+
+<link href="style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body id="page-top">

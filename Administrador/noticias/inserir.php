@@ -105,8 +105,3 @@ if (isset($_POST['Cadastro'])) {
   ?>
 
 
-
-
-  <?php
-  include_once '../footer.php';
-  ?>

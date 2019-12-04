@@ -37,7 +37,7 @@
                     <td><?php echo $linha['nome']; ?></td>
                     <td><?php echo $linha['numero']; ?></td>
                     <td><a href="ver.php"><i class="fas fa-edit"></i> Editar</a></td>
-                    <td><a href="excluir.php?ID=<?php echo $linha['id']; ?>"><i class="fas fa-times"></i> Eliminar</a></td>
+                    <td><a href="excluir.php?ID=<?php echo $linha['id']; ?>" class="eliminar"><i class="fas fa-trash-alt"></i> Eliminar</a></td>
                   </tr><?php }; ?>
                   
                   

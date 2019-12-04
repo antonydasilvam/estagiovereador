@@ -6,6 +6,9 @@
   $listar = $funcoes->listar();
   
 ?>
+
+
+
 <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
@@ -34,10 +37,10 @@
             foreach ($listar as $linha) {
                 ?>
                   <tr>
-                    <td><a href="vercompleta.php?ID=<?php echo $linha['id']; ?>"><?php echo $linha['titulo']; ?></a></td>
+                    <td><a href="ver.php?ID=<?php echo $linha['id']; ?>"><?php echo $linha['titulo']; ?></a></td>
                     <td><?php echo $linha['tiponoticia']; ?></td>
                     <td><?php echo $linha['datant']; ?></td>
-                    <td><a href="excluir.php?ID=<?php echo $linha['id']; ?>&portada=<?php echo $linha['portada']; ?>"><i class="fas fa-times"></i> Eliminar</a></td>
+                    <td><a href="excluir.php?ID=<?php echo $linha['id']; ?>&portada=<?php echo $linha['portada']; ?>" class="eliminar"><i class="fas fa-trash-alt"></i> Eliminar</a></td>
                   </tr><?php }; ?>
                   
                   

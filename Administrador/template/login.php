@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
+  <script src='https://www.google.com/recaptcha/api.js'></script>
   <title>AdminLogin</title>
 
   <!-- Custom fonts for this template-->
@@ -45,6 +45,7 @@
                 Remember Password
               </label>
             </div>-->
+          <div class="g-recaptcha" data-sitekey="6LcD5MUUAAAAAPIxrWTtURLfWHG868y8rfTWmVYi"></div>
           </div>
           <!--<a class="btn btn-primary btn-block" href="index.html">Ingresar</a>-->
           <input type="submit" value="Ingresar" class="btn btn-primary btn-block"/>
