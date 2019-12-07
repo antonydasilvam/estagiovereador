@@ -5,14 +5,16 @@
 
     
     $usuario = $_POST['usuario'];
-	$senha = /*sha1*/($_POST['senha']);
+	$senha = sha1($_POST['senha']);
 	/*var_dump($usuario,$senha);
 	exit();*/
 	$recaptcha = $_POST["g-recaptcha-response"];
     $objLogar = new FuncoesAdministradores();
-    $resultado = $objLogar->login($usuario, $senha);
-	
+	$resultado = $objLogar->login($usuario, $senha);
 
+	$a  = array();
+
+	//var_dump($resultado !== $a, $a, $resultado);die;
 
 	$url = 'https://www.google.com/recaptcha/api/siteverify';
 	$data = array(
@@ -32,13 +34,13 @@
 		// No eres un robot, continuamos con el envío del email
 		// ...
         // ...
-        if($resultado == 1){
-            $_SESSION['id'] = $resultado->id;
-            $_SESSION['usuario'] = $resultado->usuario;
+        if($resultado !== $a){
+            // $_SESSION['id'] = $resultado->id;
+            // $_SESSION['usuario'] = $resultado->usuario;
             $_SESSION['login'] = true;
             print_r($_SESSION);
-             echo "Logado com Sucesso";
-             header("location:index.php");
+            echo "Logado com Sucesso";
+            header("location:index.php");
          }
          else{
              header("location:login.php");

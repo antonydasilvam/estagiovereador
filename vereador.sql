@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-11-2019 a las 09:24:07
+-- Tiempo de generación: 06-12-2019 a las 03:55:04
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.4
 
@@ -39,7 +39,10 @@ CREATE TABLE `administradores` (
 --
 
 INSERT INTO `administradores` (`id`, `usuario`, `senha`) VALUES
-(1, 'yo', 'yotambien');
+(1, 'yo', 'yotambien'),
+(2, 'vereadoraz', '57ffdbffec2f242b823ce260126ce551'),
+(3, 'prueba1', 'c2b7499cf0a6d9350ba8667917da6a234a7965df'),
+(4, 'vino', '3fa6b1ff29aa0b4f9b9c59c676846829');
 
 -- --------------------------------------------------------
 
@@ -59,10 +62,10 @@ CREATE TABLE `gabinete` (
 --
 
 INSERT INTO `gabinete` (`id`, `nome`, `cargo`, `foto`) VALUES
-(18, 'Antonio Zenoir', 'Vereador', 'personax2.jpg'),
-(19, 'Rafael Kohanoski', 'Assessor', 'personax2.jpg'),
-(20, 'Daniel Sant\'Anna', 'Assessor', 'personax2.jpg'),
-(21, 'Antony da Silva', 'Estagiario', 'personax2.jpg');
+(23, 'Carol', 'Estagiaria', 'Carol.png'),
+(24, 'Rafael', 'Assessor', 'Rafael.png'),
+(27, 'Nose', 'Assessor', 'Nose.png'),
+(28, 'Debora', 'Assessora', 'Debora.png');
 
 -- --------------------------------------------------------
 
@@ -179,13 +182,13 @@ ALTER TABLE `telefonesuteis`
 -- AUTO_INCREMENT de la tabla `administradores`
 --
 ALTER TABLE `administradores`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `gabinete`
 --
 ALTER TABLE `gabinete`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `imagens`

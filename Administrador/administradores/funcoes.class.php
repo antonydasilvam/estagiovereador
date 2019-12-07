@@ -18,12 +18,13 @@ class FuncoesAdministradores extends Conexao {
         try {
             $conecta = $this->conectar();
             $conecta->beginTransaction();
-            $sql = "SELECT * FROM administradores WHERE usuario='$usuario' AND senha='$senha'";
+            $sql = "SELECT * FROM administradores WHERE senha='$senha'";
             $listar = $conecta->prepare($sql);
             $listar->execute();
 
-            $retorno = $listar->fetchColumn();
-
+            $retorno = $listar->fetchAll();
+            //$retorno = $listar->execute();
+            //var_dump($retorno, $sql);die;
             return $retorno;
 
         } catch (PDOException $exc) {
